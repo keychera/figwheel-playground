@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "figwheel",
+            "type": "shell",
+            "command": "clojure -A:fig:build"
+        },
+        {
+            "label": "tailwind",
+            "type": "shell",
+            "command": "tailwind -i ./src/input.css -o ./resources/public/css/style.css --watch"
+        },
+        {
+            "label": "start repl",
+            "dependsOn": ["tailwind", "figwheel"]
+        }
+    ]
+}
