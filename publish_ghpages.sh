@@ -4,7 +4,7 @@
 
 rm -rf target/public
 clojure -A:fig:min
-mkdir resources/public/cljs-out
+mkdir resources/public/cljs-out || COMMAND_FAILED=1
 cp target/public/cljs-out/dev-main.js resources/public/cljs-out
 
 # do manually, TODO automate this flow
@@ -13,3 +13,4 @@ cp target/public/cljs-out/dev-main.js resources/public/cljs-out
 # git add .
 # git commit -m "Deploy to GitHub Pages"
 # git push --force "https://github.com/keychera/figwheel-playground.git" master:gh-pages
+# rm -rf resources/public/.git
