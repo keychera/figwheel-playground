@@ -4,3 +4,5 @@
 .lsp/
 target/
 hello/
+
+.DS_Store
