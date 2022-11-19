@@ -69,7 +69,7 @@
 
 (def dropdown-number
   [:select {:id "number"
-            :class "text-2xl mx-2"
+            :class "text-6xl mx-2"
             :on-change #(change-state :number %) } 
    [:option {:value "何"} "何"]
    (->> (range 1 11)
@@ -77,7 +77,7 @@
 
 (def dropdown-counter
   [:select {:id "counter"
-            :class "text-2xl mx-2"
+            :class "text-6xl mx-2"
             :on-change #(change-state :counter %)} 
    (->> (keys kazoeru)
         (map (fn [counter] [:option {:value counter} counter])))])
@@ -86,17 +86,17 @@
 (defn kazoeru-tool []
   (let [{num :number  con :counter} @state]
    [:div {:class "kazoeru-div"}
-   [:div {:class "p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4"}
+   [:div {:class "kazoeru-comp"}
     [:div {:class "shrink-0"}
-     [:img {:class "h-12 w-12" :src "./img/clojure.svg" :alt "chera"}]]
+     [:img {:class "h-36 w-36 m-4" :src "./img/clojure.svg" :alt "chera"}]]
     [:div
-     [:div {:class "text-xl font-medium text-black"} "数えましょう！"]
-     [:p {:class "text-slate-500"} "なんだったっけ？"]]] 
-    [:div {:class "p-6 max-w-sm mx-auto my-4 bg-white rounded-xl shadow-lg flex items-center "}
+     [:div {:class "text-8xl font-medium text-black my-2"} "数えましょう！"]
+     [:p {:class "text-6xl text-slate-500"} "なんだったっけ？"]]] 
+    [:div {:class "p-6 mx-16 my-16 bg-white rounded-xl shadow-lg flex items-center "}
      dropdown-number
      dropdown-counter
      [:div {:class "mx-auto"}
-      [:p {:class "mx-12 text-3xl font-medium"}
+      [:p {:class "mx-12 text-6xl font-medium"}
       (str ((kazoeru con) num))]] 
       ] 
    ])
@@ -108,14 +108,10 @@
            [:span {:class "sidebar-tooltip group-hover:scale-100"} text]]))
 
 (defn sidebar []
-  [:div {:class "fixed top-0 left-0 h-screen w-16 m-0
-                 flex flex-col
-                 bg-gray-900 text-white shadow-lg"}
+  [:div {:class "sidebar"}
    (sidebar-icon "🗿" "-_-")
    (sidebar-icon "🛏️" "bobo")
-   (sidebar-icon "🤔" "hmm")
    (sidebar-icon "λ" "lambda")
-   (sidebar-icon "😔")
    ])
 
 (defn headwind []

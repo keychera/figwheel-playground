@@ -2,7 +2,10 @@
 
 quick start
 
+    rm -rf target/public
     clojure -A:fig:build
+
+public files in target messes CSS REPL
 
 production
 
