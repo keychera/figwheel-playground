@@ -1,4 +1,6 @@
 .rebel_readline_history
 .cpcache/
+.clj-kondo/
+.lsp/
 target/
-
+hello/
