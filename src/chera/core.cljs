@@ -84,8 +84,8 @@
 
 ; first example of https://tailwindcss.com/docs/utility-first
 (defn kazoeru-tool []
-  ( let [{num :number  con :counter} @state]
-   [:div { :class "" }
+  (let [{num :number  con :counter} @state]
+   [:div {:class "kazoeru-div"}
    [:div {:class "p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4"}
     [:div {:class "shrink-0"}
      [:img {:class "h-12 w-12" :src "./img/clojure.svg" :alt "chera"}]]
@@ -100,7 +100,29 @@
       (str ((kazoeru con) num))]] 
       ] 
    ])
-  )
+  ) 
+
+(defn sidebar-icon 
+  ([icon] (sidebar-icon icon "tooltip!"))
+  ([icon text] [:div {:class "sidebar-icon group"} icon
+           [:span {:class "sidebar-tooltip group-hover:scale-100"} text]]))
+
+(defn sidebar []
+  [:div {:class "fixed top-0 left-0 h-screen w-16 m-0
+                 flex flex-col
+                 bg-gray-900 text-white shadow-lg"}
+   (sidebar-icon "🗿" "-_-")
+   (sidebar-icon "🛏️" "bobo")
+   (sidebar-icon "🤔" "hmm")
+   (sidebar-icon "λ" "lambda")
+   (sidebar-icon "😔")
+   ])
+
+(defn headwind []
+  [:div {:class "flex"}
+   (sidebar)
+   (kazoeru-tool)
+   ])
 
 ; below seems to be the heart of reagent, the edge of the software
 
@@ -108,7 +130,7 @@
   (gdom/getElement "app"))
 
 (defn mount [el]
-  (rdom/render [kazoeru-tool] el))
+  (rdom/render [headwind] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]

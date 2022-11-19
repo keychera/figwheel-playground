@@ -16,8 +16,6 @@ production
 - https://dawranliou.com/blog/vanilla-cljs/
 - https://github.com/kuzmisin/closurecheatsheet/blob/master/dom.md
 - https://google.github.io/closure-library/api/goog.dom.html
-- https://tailwindcss.com/docs/installation
-
 ### structure learnt from 
 this project is not generated, mainly just copy paste things that I need from the generated project
 
@@ -29,3 +27,8 @@ this project is not generated, mainly just copy paste things that I need from th
 tailwind cli downloaded, put to path, renamed as `tailwind`
 
     tailwind -i ./src/input.css -o ./resources/public/css/style.css --watch
+
+resources used for tailwinds
+
+- https://tailwindcss.com/docs/installation
+- Fireship Tailwind tutorial - https://youtu.be/pfaSUYaSgRo
