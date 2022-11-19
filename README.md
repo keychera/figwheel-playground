@@ -6,11 +6,8 @@ quick start
 
 production
 
-    clojure -A:fig:min
-
-To clean all compiled files:
-
     rm -rf target/public
+    clojure -A:fig:min
 
 ### learning resources used
 
