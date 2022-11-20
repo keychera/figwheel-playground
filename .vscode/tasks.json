@@ -4,7 +4,18 @@
         {
             "label": "figwheel",
             "type": "shell",
-            "command": "clojure -A:fig:build"
+            "command": "clojure -A:fig:build",
+            "windows": {
+                "command": "powershell -command clj -A:fig:build"
+            }
+        },
+        {
+            "label": "figwheel test",
+            "type": "shell",
+            "command": "clojure -A:fig:test",
+            "windows": {
+                "command": "powershell -command clj -A:fig:test"
+            }
         },
         {
             "label": "tailwind",
@@ -13,7 +24,19 @@
         },
         {
             "label": "start repl",
-            "dependsOn": ["tailwind", "figwheel"]
+            "dependsOn": [
+                "tailwind",
+                "figwheel"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "start repl test",
+            "dependsOn": [
+                "tailwind",
+                "figwheel test"
+            ],
+            "problemMatcher": []
         }
     ]
 }

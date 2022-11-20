@@ -35,3 +35,8 @@ resources used for tailwinds
 
 - https://tailwindcss.com/docs/installation
 - Fireship Tailwind tutorial - https://youtu.be/pfaSUYaSgRo
+
+# japanese numeral and counter resources
+
+- https://www.tofugu.com/japanese/counting-in-japanese/
+- https://github.com/Greatdane/Convert-Numbers-to-Japanese/blob/master/Convert-Numbers-to-Japanese.py
