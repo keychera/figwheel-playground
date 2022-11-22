@@ -38,7 +38,7 @@
 
 ;; the name of numeral system refers to this https://en.wikipedia.org/wiki/List_of_numeral_systems
 (defn west-arabic->japanese [num]
-  (as-> num it
+  (as-> (str num) it
     (reverse it) (map-indexed vector it)
     (map (fn [[e juu]] (apply (e-map e) [juu])) it)
     (reduce #(str %2 %1) it)

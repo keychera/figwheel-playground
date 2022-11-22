@@ -1,11 +1,10 @@
 (ns chera.hello-test
-    (:require
-     [cljs.test :refer-macros [deftest is testing]]))
+  (:require [chera.num-converter :refer [west-arabic->japanese]]
+            [cljs.test :refer-macros [deftest are]]))
 
-(defn multiply [a b] 2)
-
-(deftest multiply-test
-  (is (= (* 1 2) (multiply 1 2))))
-
-(deftest multiply-test-2
-  (is (= (* 75 10) (multiply 10 75))))
+(deftest test-conversion
+  (are [num expected] (= (west-arabic->japanese num) expected)
+    1 "いち"
+    10 "じゅう"
+    100 "ひゃく1"
+    1000 "せん"))
