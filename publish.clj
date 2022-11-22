@@ -14,7 +14,7 @@
 
 (defn clean-build []
   (doall [(does fs/delete-tree "target/public")
-          (does shell "clojure" "-A:fig:min")
+          (does shell "clojure" "-M:fig:min")
           (does fs/delete-tree "target/public/cljs-out/dev")
           (does fs/copy-tree "resources/public" "target/public")
           (does fs/delete "target/public/css/.gitignore")

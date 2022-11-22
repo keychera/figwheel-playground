@@ -3,7 +3,7 @@
 # https://gist.github.com/ramnathv/2227408
 
 rm -rf target/public
-clojure -A:fig:min
+clojure -M:fig:min
 mkdir resources/public/cljs-out || COMMAND_FAILED=1
 cp target/public/cljs-out/dev-main.js resources/public/cljs-out
 

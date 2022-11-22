@@ -3,14 +3,14 @@
 quick start
 
     rm -rf target/public
-    clojure -A:fig:build
+    clojure -M:fig:build
 
 public files in target messes CSS REPL
 
 production
 
     rm -rf target/public
-    clojure -A:fig:min
+    clojure -M:fig:min
 
 ### learning resources used
 
