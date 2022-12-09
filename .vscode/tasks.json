@@ -7,7 +7,8 @@
             "command": "clojure -M:fig:build",
             "windows": {
                 "command": "powershell -command clj -M:fig:build"
-            }
+            },
+            "problemMatcher": []
         },
         {
             "label": "figwheel test",
@@ -16,19 +17,6 @@
             "windows": {
                 "command": "powershell -command clj -M:fig:test"
             },
-            "problemMatcher": []
-        },
-        {
-            "label": "tailwind",
-            "type": "shell",
-            "command": "tailwind -i ./src/input.css -o ./resources/public/css/style.css --watch"
-        },
-        {
-            "label": "start repl",
-            "dependsOn": [
-                "tailwind",
-                "figwheel"
-            ],
             "problemMatcher": []
         }
     ]
