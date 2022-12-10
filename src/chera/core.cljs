@@ -102,23 +102,39 @@
    ])
   ) 
 
-(defn sidebar-icon 
-  ([icon] (sidebar-icon icon "tooltip!"))
-  ([icon text] [:div {:class "sidebar-icon group"} icon
-           [:span {:class "sidebar-tooltip group-hover:scale-100"} text]]))
+(defn dropdown []
+  [:details {:role "list"}
+   [:summary {:aria-haspopup "listbox"}]
+   [:ul {:role "listbox"}
+    [:li [:a "hey"]]
+    [:li [:a "hey2"]]
+    [:li [:a "hey3"]]]])
 
-(defn sidebar []
-  [:div {:class "sidebar"}
-   (sidebar-icon "🗿" "-_-")
-   (sidebar-icon "🛏️" "bobo")
-   (sidebar-icon "λ" "lambda")
-   ])
+(def dropdown-number2
+  [:select {:on-change #(change-state :number %)}
+   [:option {:value "何"} "何"]
+   (->> (range 1 11)
+        (map (fn [idx] [:option {:value idx} idx])))])
 
-(defn headwind []
-  [:div {:class "flex"}
-   (sidebar)
-   (kazoeru-tool)
-   ])
+
+(defn kazoeru-tool2 []
+  (let [{:keys [number counter]} @state]
+    [:div {:class "container"}
+     [:section]
+     [:hgroup
+      [:h1 "数えましょう！"]
+      [:h2 "なんだったっけ？"]] 
+     [:table 
+      [:tbody
+       [:tr
+        [:td 
+         [:article
+          [:h2 
+           (-> counter kazoeru (apply [number]))]]]]]
+      [:tfoot
+       [:tr
+        [:th {:scope "col" :colspan 3} (dropdown)]
+        [:th {:scope "col"} (dropdown)]]]]]))
 
 ; below seems to be the heart of reagent, the edge of the software
 
@@ -126,7 +142,7 @@
   (gdom/getElement "app"))
 
 (defn mount [el]
-  (rdom/render [headwind] el))
+  (rdom/render [kazoeru-tool2] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]
